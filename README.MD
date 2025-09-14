@@ -348,22 +348,3 @@ springdoc.swagger-ui.path=/swagger-ui.html
 ## 📄 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Monk Commerce Development Team**
-- Email: dev@monkcommerce.com
-- GitHub: [@monkcommerce](https://github.com/monkcommerce)
-
-## 🙏 Acknowledgments
-
-- Spring Boot team for the excellent framework
-- H2 Database for seamless development experience
-- Swagger team for API documentation tools
-- Open source community for continuous inspiration
-
----
-
-**⭐ If you find this project helpful, please give it a star!**
-
-For more information, visit our [Documentation](https://docs.monkcommerce.com) or [API Reference](https://api.monkcommerce.com/docs).
