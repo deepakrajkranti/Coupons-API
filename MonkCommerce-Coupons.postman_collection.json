@@ -1,0 +1,238 @@
+{
+  "info": {
+    "name": "Monk Commerce - Coupons API",
+    "_postman_id": "c5c47c42-9a3c-4f61-9d2e-b1a7f12a0abc",
+    "description": "Postman collection for testing the Coupons API (Cart-wise, Product-wise, BxGy).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Coupon - Cart-wise",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"CART_WISE\",\n  \"detailsJson\": \"{ \\\"threshold\\\": 100, \\\"discount\\\": 10 }\",\n  \"repetitionLimit\": 1,\n  \"expiryDate\": \"2025-12-31\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/coupons",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Coupon - Product-wise",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"PRODUCT_WISE\",\n  \"detailsJson\": \"{ \\\"product_id\\\": 1, \\\"discount\\\": 20 }\",\n  \"repetitionLimit\": 1,\n  \"expiryDate\": \"2025-12-31\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/coupons",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Coupon - BxGy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"BXGY\",\n  \"detailsJson\": \"{ \\\"buy_products\\\": [{ \\\"product_id\\\": 1, \\\"quantity\\\": 2 }], \\\"get_products\\\": [{ \\\"product_id\\\": 3, \\\"quantity\\\": 1 }], \\\"repetition_limit\\\": 2 }\",\n  \"repetitionLimit\": 2,\n  \"expiryDate\": \"2025-12-31\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/coupons",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get All Coupons",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/coupons",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Coupon by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/coupons/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Coupon",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"CART_WISE\",\n  \"detailsJson\": \"{ \\\"threshold\\\": 200, \\\"discount\\\": 15 }\",\n  \"repetitionLimit\": 1,\n  \"expiryDate\": \"2026-01-01\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/coupons/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Coupon",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/api/coupons/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Calculate Discount for Coupon",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"items\": [\n    { \"productId\": 1, \"quantity\": 2, \"price\": 60 },\n    { \"productId\": 2, \"quantity\": 1, \"price\": 50 }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/coupons/calculate/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons",
+            "calculate",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Applicable Coupons for Cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"items\": [\n    { \"productId\": 1, \"quantity\": 6, \"price\": 50 },\n    { \"productId\": 2, \"quantity\": 3, \"price\": 30 },\n    { \"productId\": 3, \"quantity\": 2, \"price\": 25 }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/coupons/applicable-coupons",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons",
+            "applicable-coupons"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -224,7 +224,7 @@ src/main/java/com/monkcommerce/coupons/
 ```java
 public interface CouponStrategy {
     double calculateDiscount(Coupon coupon, CartDto cart);
-    boolean isApplicable(Coupon coupon, CartDto cart);
+    CartDTO apply(CartDTO cart, Coupon coupon);
 }
 ```
 
@@ -243,8 +243,6 @@ CREATE TABLE coupon (
     details_json TEXT NOT NULL,
     repetition_limit INTEGER,
     expiry_date DATE,
-    created_date TIMESTAMP,
-    updated_date TIMESTAMP
 );
 ```
 
